@@ -123,9 +123,87 @@ export default function FruitTreePage() {
         </div>
       </motion.div>
 
+      {/* Rootstock Suppliers */}
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+        <h2 className="text-2xl font-black mb-6 flex items-center gap-3">
+          <TreePine className="w-7 h-7 text-rose-400" />
+          <span className="text-white">Rootstock & Scion Sources</span>
+        </h2>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {[
+            { name: 'Cummins Nursery', url: 'cumminsnursery.com', speciality: 'Rootstock specialists. Apple (M9, M26, G41, G890), pear (OHxF 97, 333), cherry (Gisela). Scion wood too.', price: '$3–$8/rootstock' },
+            { name: 'Raintree Nursery', url: 'raintreenursery.com', speciality: 'Huge variety of fruit trees, rootstock, and scion. Ships bare-root. Excellent for Pacific NW/Mountain West.', price: '$15–$40/tree, $3–$6/rootstock' },
+            { name: 'Fedco Trees', url: 'fedcoseeds.com/trees', speciality: 'Cold-hardy varieties, cooperative pricing, scion wood exchange. Great for zone 5–6 selections.', price: '$10–$30/tree' },
+            { name: 'USDA-GRIN Germplasm', url: 'ars-grin.gov', speciality: 'Free scion wood from USDA National Clonal Germplasm Repository. Rare and heritage varieties. Research use.', price: 'Free (limited quantities)' },
+            { name: 'Local Scion Exchange', url: 'Search "Utah scion exchange"', speciality: 'Annual winter events where local orchardists swap scion wood. Best way to get locally-adapted varieties. Utah Fruit Explorers group.', price: 'Free / trade' },
+            { name: 'Peaceful Heritage Nursery', url: 'peacefulheritage.com', speciality: 'Heirloom and disease-resistant fruit trees. Organic. Good for Utah climate selections.', price: '$20–$45/tree' },
+          ].map((s, i) => (
+            <div key={i} className="p-4 bg-rose-900/10 border border-rose-700/12 rounded-xl">
+              <h4 className="font-bold text-white text-sm">{s.name}</h4>
+              <p className="text-xs text-rose-400/50 mb-2">{s.url}</p>
+              <p className="text-sm text-rose-200/40 mb-1">{s.speciality}</p>
+              <span className="text-xs px-2 py-0.5 bg-amber-800/30 rounded-full text-amber-300">{s.price}</span>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Year-by-Year Timeline */}
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+        <h2 className="text-2xl font-black mb-6 flex items-center gap-3">
+          <Calendar className="w-7 h-7 text-emerald-400" />
+          <span className="bg-gradient-to-r from-emerald-300 to-emerald-500 bg-clip-text text-transparent">Year-by-Year Orchard Timeline</span>
+        </h2>
+        <div className="space-y-3">
+          {[
+            { year: 'Year 1 (Setup)', tasks: ['Take softwood cuttings from easy species (fig, grape, elderberry, peach) in June', 'Root cuttings in greenhouse with humidity dome + heat mat + rooting hormone', 'Order apple/pear/cherry rootstock in fall for winter delivery', 'Practice whip-and-tongue grafting on spare rootstock', 'Plant easy-rooters (grape, elderberry, fig) in permanent locations after rooting'], cost: '$50–$200 (rootstock, hormone, supplies)' },
+            { year: 'Year 2 (Expansion)', tasks: ['Graft apple/cherry/pear scion onto rootstock in Feb–Mar', 'Transplant year-1 rooted cuttings to larger pots or ground', 'Take more softwood cuttings for multiplication', 'First grapes may produce small clusters', 'Begin orchard layout planning with 3D property scan data', 'Mulch all trees heavily (wood chips, 4–6" deep, keep away from trunk)'], cost: '$30–$100 (scion, supplies)' },
+            { year: 'Year 3 (First Harvests)', tasks: ['Elderberry, grape, fig: first real harvests', 'Peach trees may flower (pinch flowers in year 2–3 to strengthen tree)', 'Grafted apples/pears growing vigorously on rootstock', 'Begin selling rooted cuttings and grafted trees at farmers market', 'Apply dormant oil spray in late winter for pest prevention'], cost: 'Minimal — self-sustaining' },
+            { year: 'Year 4–5 (Production)', tasks: ['Most trees producing fruit: peaches, plums, cherries, figs, grapes', 'Apple/pear trees beginning to bear (depending on rootstock — dwarf bears in 2–3 years)', 'Harvest for fresh eating, preserves, farmers market', 'Prune annually in late winter for shape and production', 'The orchard is now a self-sustaining perennial food system'], cost: 'Revenue positive' },
+          ].map((item, i) => (
+            <div key={i} className="p-5 bg-emerald-900/10 border border-emerald-700/12 rounded-xl">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
+                <h4 className="font-bold text-emerald-300 text-sm">{item.year}</h4>
+                <span className="text-xs px-2 py-0.5 bg-amber-800/30 rounded-full text-amber-300">{item.cost}</span>
+              </div>
+              <ul className="space-y-1">
+                {item.tasks.map((task, j) => (
+                  <li key={j} className="flex items-start gap-2 text-sm text-emerald-200/50">
+                    <Leaf className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>{task}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Orchard Layout */}
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+        <h2 className="text-2xl font-black mb-6 text-white">Orchard Layout Guidelines</h2>
+        <div className="p-6 bg-rose-900/10 border border-rose-700/15 rounded-2xl">
+          <div className="space-y-3">
+            {[
+              { tip: 'Spacing (dwarf rootstock)', detail: '6–10 ft between trees. Dwarf apple on M9: 6–8 ft. Semi-dwarf on M26/G890: 10–14 ft. Full-size: 20–25 ft (not recommended for 1 acre — too much space).' },
+              { tip: 'Orientation', detail: 'Plant rows north-south for maximum sun on both sides. Place tallest trees (pear, mulberry) on north end so they don\'t shade shorter trees.' },
+              { tip: 'Pollination', detail: 'Most apples, pears, sweet cherries need a different variety nearby for cross-pollination. Plant at least 2 varieties of each (within 50 ft). Sour cherry, peach, fig, grape are mostly self-fertile.' },
+              { tip: 'Microclimate', detail: 'Plant against a south-facing wall or fence for extra warmth (figs, pomegranate, citrus in pots). Avoid frost pockets (low spots where cold air settles). Slightly elevated or sloped ground is ideal.' },
+              { tip: 'Understory', detail: 'Plant comfrey, clover, and wildflowers under trees as living mulch. Comfrey mines deep minerals, clover fixes nitrogen. Creates a guild / food forest layer.' },
+              { tip: 'Estimated space needed', detail: 'A mini-orchard of 15–20 dwarf/semi-dwarf trees fits in ~2,000–3,000 sq ft (about 1/15 of the acre). Plenty of room alongside hemp, garden beds, and mushroom area.' },
+            ].map((item, i) => (
+              <div key={i} className="p-4 bg-black/15 rounded-xl">
+                <h4 className="font-bold text-white text-sm mb-1">{item.tip}</h4>
+                <p className="text-sm text-rose-200/50">{item.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
       <div className="p-5 bg-emerald-900/15 border border-emerald-700/20 rounded-xl">
         <p className="text-sm text-emerald-300/80">
-          <strong>Strategy:</strong> Start with easy-rooters (fig, grape, elderberry, mulberry, peach) from cuttings this season. Order apple/pear/cherry rootstock for winter grafting practice. Within 2–3 years, you'll have a producing mini-orchard with zero nursery costs beyond the initial rootstock.
+          <strong>Strategy:</strong> Start with easy-rooters (fig, grape, elderberry, mulberry, peach) from cuttings this season. Order apple/pear/cherry rootstock for winter grafting practice. Use the <a href="/greenhouse" className="text-emerald-400 underline hover:text-emerald-300">greenhouse</a> as your propagation nursery. Within 2–3 years, you'll have a producing mini-orchard with zero nursery costs beyond the initial rootstock. All trees irrigated with <a href="/water" className="text-emerald-400 underline hover:text-emerald-300">RO water</a> on deep-soak drip.
         </p>
       </div>
     </div>

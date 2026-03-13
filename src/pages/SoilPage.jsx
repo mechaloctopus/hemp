@@ -152,6 +152,66 @@ export default function SoilPage() {
         </div>
       </motion.div>
 
+      {/* Composting & Vermicomposting */}
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+        <h2 className="text-2xl font-black mb-6 flex items-center gap-3">
+          <ThermometerSun className="w-7 h-7 text-amber-400" />
+          <span className="bg-gradient-to-r from-amber-300 to-orange-500 bg-clip-text text-transparent">Composting & Vermicomposting</span>
+        </h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="p-6 bg-amber-900/10 border border-amber-700/15 rounded-2xl">
+            <h3 className="text-lg font-bold text-amber-300 mb-3">Hot Compost (Thermophilic)</h3>
+            <div className="space-y-2 text-sm text-amber-200/50">
+              <p><strong className="text-white">Ratio:</strong> 25–30:1 Carbon to Nitrogen. ~3 parts brown (leaves, straw, cardboard) to 1 part green (kitchen scraps, grass, manure).</p>
+              <p><strong className="text-white">Pile size:</strong> Minimum 3×3×3 ft to generate heat. Use a 3-bin system for continuous production.</p>
+              <p><strong className="text-white">Process:</strong> Layer greens and browns, moisten to damp sponge. Internal temp should reach 130–160°F within days. Turn every 3–5 days. Finished in 4–8 weeks.</p>
+              <p><strong className="text-white">Inputs from the farm:</strong> Hemp stalks/leaves, mushroom spent substrate (excellent!), kitchen scraps, garden waste, straw mulch, cardboard.</p>
+              <p><strong className="text-white">Tools:</strong> Compost thermometer ($15), pitchfork, 3-bin pallet system (free from pallets).</p>
+            </div>
+          </div>
+          <div className="p-6 bg-emerald-900/10 border border-emerald-700/15 rounded-2xl">
+            <h3 className="text-lg font-bold text-emerald-300 mb-3">Vermicomposting (Worm Bin)</h3>
+            <div className="space-y-2 text-sm text-emerald-200/50">
+              <p><strong className="text-white">Species:</strong> Red wigglers (Eisenia fetida). 1 lb worms (~1,000) processes ~½ lb food scraps/day.</p>
+              <p><strong className="text-white">Bin:</strong> Stacking tray system (Worm Factory 360, ~$100) or DIY from Rubbermaid totes. Keep in garage/shed (60–80°F).</p>
+              <p><strong className="text-white">Feed:</strong> Fruit/veggie scraps, coffee grounds, shredded paper, cardboard. Avoid citrus, onion, meat, dairy.</p>
+              <p><strong className="text-white">Harvest:</strong> Every 3–4 months. Worm castings are the single best soil amendment — rich in humic acid, beneficial microbes, plant-available nutrients.</p>
+              <p><strong className="text-white">Worm tea:</strong> Steep castings in RO water with molasses + air pump for 24–48 hrs. Spray as foliar feed or soil drench. Incredible biology booster.</p>
+              <p><strong className="text-white">Cost:</strong> ~$50–$120 setup + $30 for 1 lb worms. Self-sustaining after that.</p>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Seasonal Soil Care Calendar */}
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+        <h2 className="text-2xl font-black mb-6 flex items-center gap-3">
+          <Sprout className="w-7 h-7 text-emerald-400" />
+          <span className="text-white">Seasonal Soil Care Schedule</span>
+        </h2>
+        <div className="space-y-3">
+          {[
+            { season: 'Early Spring (Mar)', tasks: ['Send soil samples to lab for testing (every zone)', 'Apply elemental sulfur if pH too high (results-based)', 'Top-dress all beds with 1–2" finished compost', 'Add mycorrhizal inoculant to planting holes', 'Turn compost piles, start new batch'] },
+            { season: 'Spring (Apr–May)', tasks: ['Mulch all beds 2–4" with straw after planting', 'Begin weekly compost tea applications', 'Side-dress heavy feeders (tomatoes, corn) with worm castings', 'Plant cover crops in any fallow beds', 'Monitor soil moisture — start irrigation from RO tank'] },
+            { season: 'Summer (Jun–Aug)', tasks: ['Maintain mulch layer — replenish as needed', 'Continue compost tea every 1–2 weeks', 'Add kelp meal mid-season for potassium boost', 'Monitor for salt buildup (white crust) — flush with extra RO water if needed', 'Feed worm bin consistently for fall castings harvest'] },
+            { season: 'Fall (Sep–Oct)', tasks: ['Plant cover crops (rye + crimson clover mix) in all empty beds', 'Harvest worm castings — top-dress perennial beds', 'Chop and drop spent plants as green mulch (not diseased ones)', 'Add spent mushroom substrate to compost pile', 'Spread 1" layer of aged compost on all beds before winter'] },
+            { season: 'Winter (Nov–Feb)', tasks: ['Leave cover crops growing — roots feed soil biology through winter', 'Plan next season amendments based on fall soil test', 'Maintain worm bin indoors (garage)', 'Build/repair compost bins', 'Order amendments for spring (sulfur, azomite, kelp meal, etc.)'] },
+          ].map((item, i) => (
+            <div key={i} className="p-5 bg-emerald-900/10 border border-emerald-700/12 rounded-xl">
+              <h4 className="font-bold text-emerald-300 text-sm mb-2">{item.season}</h4>
+              <ul className="space-y-1">
+                {item.tasks.map((task, j) => (
+                  <li key={j} className="flex items-start gap-2 text-sm text-emerald-200/50">
+                    <span className="text-emerald-400 mt-1">•</span>
+                    <span>{task}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
       {/* Living Soil Summary */}
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
         <div className="p-6 bg-gradient-to-br from-amber-500/10 to-emerald-500/5 border-2 border-amber-500/30 rounded-2xl">
@@ -160,7 +220,8 @@ export default function SoilPage() {
             <p><strong className="text-white">Feed the soil, not the plant.</strong> In living soil systems, you build a thriving microbial ecosystem (bacteria, fungi, protozoa, nematodes, earthworms) that naturally converts organic matter into plant-available nutrients.</p>
             <p><strong className="text-white">Why RO water is critical:</strong> Chlorinated tap water kills these microbes on contact. Every time you water with tap, you're undoing your soil-building work. RO water lets your biology thrive — this is the single biggest advantage of our water system.</p>
             <p><strong className="text-white">No-till when possible:</strong> After initial bed preparation, minimize soil disturbance. Top-dress with compost and mulch. Let the biology do the mixing. Tilling destroys fungal networks.</p>
-            <p><strong className="text-white">Estimated soil amendment budget (year 1):</strong> $200–$500 for compost, amendments, and inoculants. Year 2+ drops significantly as biology builds and cover crops contribute.</p>
+            <p><strong className="text-white">Closed-loop system:</strong> Hemp waste + mushroom spent substrate + kitchen scraps + garden debris → compost pile → back to beds. The farm feeds itself.</p>
+            <p><strong className="text-white">Estimated soil amendment budget (year 1):</strong> $200–$500 for compost, amendments, and inoculants. Year 2+ drops significantly as biology builds, cover crops contribute, and your own compost/castings supply the bulk of fertility.</p>
           </div>
         </div>
       </motion.div>

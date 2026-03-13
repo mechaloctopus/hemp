@@ -262,6 +262,199 @@ export default function MushroomPage() {
           ))}
         </div>
       </motion.div>
+
+      {/* Substrate Recipes */}
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-12 mb-12">
+        <h2 className="text-2xl font-black mb-6 flex items-center gap-3">
+          <Beaker className="w-7 h-7 text-violet-400" />
+          <span className="bg-gradient-to-r from-violet-300 to-violet-500 bg-clip-text text-transparent">Substrate Recipes</span>
+        </h2>
+        <div className="space-y-4">
+          {[
+            {
+              name: 'Masters Mix (Industry Standard)',
+              ingredients: '50% hardwood fuel pellets (HWFP) + 50% soy hull pellets by dry weight',
+              hydration: '60–65% moisture content. Add ~1.2–1.4 L water per 1 kg dry substrate.',
+              sterilization: 'Autoclave at 15 PSI / 250°F for 2.5 hours in Unicorn 14A bags. Or steam sterilize in barrel for 18+ hours.',
+              bestFor: 'Shiitake, lion\'s mane, pioppino, chestnut, maitake',
+              notes: 'The gold standard. Soy hulls provide nitrogen, hardwood provides carbon. Extremely consistent results. Source HWFP from Tractor Supply or local pellet supplier (~$5–$8/40lb bag).',
+            },
+            {
+              name: 'Supplemented Sawdust (Hardwood Only)',
+              ingredients: '80% hardwood sawdust (oak, maple, alder) + 15% wheat bran + 5% gypsum',
+              hydration: '60–65% moisture. Squeeze test: few drops when squeezed hard.',
+              sterilization: 'Autoclave 2.5 hours at 15 PSI.',
+              bestFor: 'Shiitake, lion\'s mane, reishi, maitake',
+              notes: 'Traditional Japanese shiitake method. Wheat bran is cheap nitrogen source. Avoid softwood (pine, cedar) — contains anti-fungal resins.',
+            },
+            {
+              name: 'Straw (Pasteurized — No Autoclave Needed)',
+              ingredients: '100% chopped wheat or oat straw. Chop to 2–4" pieces.',
+              hydration: '70–75% moisture. Soak in hot water.',
+              sterilization: 'Pasteurize only: soak in 160–180°F water for 1–2 hours. Drain and cool to room temp. No autoclave needed!',
+              bestFor: 'Oyster mushrooms (all varieties), wine cap (outdoor beds)',
+              notes: 'Easiest beginner substrate. Oysters are aggressive colonizers that outcompete contaminants on pasteurized straw. Cheap and fast. NOT suitable for shiitake or lion\'s mane.',
+            },
+            {
+              name: 'Mushroom Fruiting Log Prep',
+              ingredients: 'Fresh-cut hardwood logs — oak, maple, beech, birch. 3–8" diameter, 3–4 ft long.',
+              hydration: '35–45% moisture content (natural). Soak dried logs 24 hrs before inoculation.',
+              sterilization: 'None needed — the bark is the sterile barrier. Use only fresh-cut logs (within 2–6 weeks of felling).',
+              bestFor: 'Shiitake, lion\'s mane, maitake, oyster (outdoor long-term production)',
+              notes: 'Drill-and-fill method. Seal with wax. Takes 6–18 months to colonize but produces for 3–7+ years. Best started in late winter/early spring.',
+            },
+          ].map((recipe, i) => (
+            <div key={i} className="p-6 bg-violet-900/10 border border-violet-700/15 rounded-2xl">
+              <h3 className="text-lg font-bold text-white mb-3">{recipe.name}</h3>
+              <div className="grid sm:grid-cols-2 gap-3 text-sm mb-3">
+                <div><span className="text-violet-400/50">Ingredients: </span><span className="text-white/60">{recipe.ingredients}</span></div>
+                <div><span className="text-violet-400/50">Hydration: </span><span className="text-white/60">{recipe.hydration}</span></div>
+                <div><span className="text-violet-400/50">Sterilization: </span><span className="text-white/60">{recipe.sterilization}</span></div>
+                <div><span className="text-violet-400/50">Best for: </span><span className="text-amber-300/60">{recipe.bestFor}</span></div>
+              </div>
+              <p className="text-sm text-violet-200/40">{recipe.notes}</p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Contamination Troubleshooting */}
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+        <h2 className="text-2xl font-black mb-6 flex items-center gap-3">
+          <AlertTriangle className="w-7 h-7 text-red-400" />
+          <span className="bg-gradient-to-r from-red-300 to-orange-400 bg-clip-text text-transparent">Contamination Identification & Prevention</span>
+        </h2>
+        <div className="space-y-2">
+          {[
+            { contam: 'Trichoderma (Green Mold)', appearance: 'Bright green patches, fast-spreading', cause: 'Poor sterilization, dirty air, old spawn, excess moisture', action: 'ISOLATE immediately. Do NOT open indoors. Dispose outdoors. Clean area with 10% bleach. Review sterile technique.', prevention: 'Proper sterilization times, clean flow hood, quality spawn, correct moisture levels.' },
+            { contam: 'Cobweb Mold (Dactylium)', appearance: 'Wispy, gray, cotton-candy-like growth. Spreads fast.', cause: 'Low air exchange, high humidity + stagnant air, contaminated casing', action: 'Spray directly with 3% hydrogen peroxide. Increase FAE (fresh air). Often salvageable if caught early.', prevention: 'Good FAE in fruiting chamber (4–8× per hour). Don\'t let humidity stagnate.' },
+            { contam: 'Black Mold (Aspergillus niger)', appearance: 'Black or dark green-black spots', cause: 'Severe contamination. Usually poor sterilization or contaminated grain.', action: 'Dispose of entire bag/jar. Do NOT open indoors. Aspergillus is a health hazard.', prevention: 'Verify sterilization pressure and time. Inspect grain spawn before use.' },
+            { contam: 'Bacterial Contamination ("Wet Spot")', appearance: 'Slimy, wet, sour-smelling spots on grain. Gray/yellow discoloration.', cause: 'Excess moisture in grain, inadequate sterilization, dirty needle/port', action: 'Dispose. Bacteria cannot be saved. Review grain prep — soak, simmer, dry surface before loading jars.', prevention: 'Dry grain surface before loading. No pooling water in jars. Full sterilization cycle.' },
+            { contam: 'Lipstick Mold (Sporendonema)', appearance: 'Bright orange/pink/red spots', cause: 'Contaminated substrate or spawn, poor sterile environment', action: 'Dispose immediately. Rare but aggressive.', prevention: 'Quality spawn from trusted vendors. Proper sterilization.' },
+            { contam: 'Penicillium (Blue-Green Mold)', appearance: 'Blue-green spots, powdery texture', cause: 'Airborne contamination, cracked filter patches, old spawn', action: 'Isolate and dispose. Review filter patch integrity and air quality.', prevention: 'Inspect bags for damage. HEPA filtration. Fresh spawn.' },
+          ].map((item, i) => (
+            <div key={i} className="p-4 bg-red-900/8 border border-red-700/12 rounded-xl">
+              <h4 className="font-bold text-white text-sm mb-2">{item.contam}</h4>
+              <div className="grid sm:grid-cols-2 gap-2 text-xs">
+                <div><span className="text-red-400/50 block mb-0.5">Appearance</span><span className="text-red-200/50">{item.appearance}</span></div>
+                <div><span className="text-orange-400/50 block mb-0.5">Cause</span><span className="text-orange-200/50">{item.cause}</span></div>
+                <div><span className="text-amber-400/50 block mb-0.5">Action</span><span className="text-amber-200/50">{item.action}</span></div>
+                <div><span className="text-emerald-400/50 block mb-0.5">Prevention</span><span className="text-emerald-200/50">{item.prevention}</span></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Elixir & Tincture Formulas */}
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+        <h2 className="text-2xl font-black mb-6 flex items-center gap-3">
+          <Package className="w-7 h-7 text-amber-400" />
+          <span className="bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">Elixir & Tincture Formulas</span>
+        </h2>
+        <div className="space-y-4">
+          {[
+            {
+              name: "Lion's Mane Dual-Extract Tincture",
+              method: 'Alcohol extraction (60 days) + hot water decoction, combined 1:1',
+              ingredients: 'Dried lion\'s mane fruiting bodies, 190-proof ethanol, filtered RO water',
+              process: [
+                'Grind dried lion\'s mane to coarse powder',
+                'Fill mason jar ½ full with powder, cover with 190-proof ethanol',
+                'Shake daily for 60 days in dark, cool place',
+                'Strain alcohol extract through cheesecloth — set aside',
+                'Take remaining mushroom material, simmer in RO water (low boil) for 4–8 hours',
+                'Strain hot water extract — let cool',
+                'Combine 1:1 with alcohol extract. Final product ~25–30% alcohol.',
+                'Bottle in amber dropper bottles. Label with date, species, batch #.',
+              ],
+              dosage: '1–2 mL (1–2 dropperfuls) 1–3× daily',
+              benefits: 'Nerve growth factor (NGF), cognitive function, memory, mood',
+            },
+            {
+              name: 'Immunity Mushroom Broth',
+              method: 'Long simmer extraction — culinary and medicinal',
+              ingredients: 'Dried shiitake (2 oz), maitake (1 oz), chestnut mushroom (1 oz), ginger (2"), turmeric (1"), garlic (4 cloves), onion, sea salt, black pepper, RO water (1 gallon)',
+              process: [
+                'Soak dried mushrooms in 1 gallon RO water for 1 hour',
+                'Add ginger, turmeric, garlic, onion — bring to low simmer',
+                'Simmer 4–8 hours (do NOT boil hard — destroys compounds)',
+                'Strain through fine mesh. Press mushrooms to extract all liquid.',
+                'Season with sea salt and black pepper (pepper activates turmeric curcumin).',
+                'Yields ~3 quarts concentrated broth. Store in fridge (5 days) or freeze.',
+              ],
+              dosage: '1 cup daily as warm broth, or use as cooking stock',
+              benefits: 'Beta-glucans (immune modulation), polysaccharides, umami depth, gut health',
+            },
+          ].map((formula, i) => (
+            <div key={i} className="p-6 bg-amber-900/10 border border-amber-700/15 rounded-2xl">
+              <h3 className="text-lg font-bold text-white mb-1">{formula.name}</h3>
+              <p className="text-xs text-amber-400/50 mb-3">{formula.method}</p>
+              <div className="text-sm mb-3"><span className="text-amber-400/50">Ingredients: </span><span className="text-white/60">{formula.ingredients}</span></div>
+              <div className="mb-3">
+                <span className="text-xs text-violet-400/60 font-semibold block mb-2">Process:</span>
+                <ol className="space-y-1">
+                  {formula.process.map((step, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm text-violet-200/50">
+                      <span className="text-violet-400 font-bold text-xs mt-0.5">{j + 1}.</span>
+                      <span>{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-3 text-sm">
+                <div><span className="text-emerald-400/50">Dosage: </span><span className="text-white/60">{formula.dosage}</span></div>
+                <div><span className="text-emerald-400/50">Benefits: </span><span className="text-emerald-200/60">{formula.benefits}</span></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Production Economics */}
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <h2 className="text-2xl font-black mb-6 flex items-center gap-3">
+          <ShoppingBag className="w-7 h-7 text-emerald-400" />
+          <span className="bg-gradient-to-r from-emerald-300 to-emerald-500 bg-clip-text text-transparent">Production Economics</span>
+        </h2>
+        <div className="p-6 bg-gradient-to-br from-emerald-500/10 to-violet-500/5 border-2 border-emerald-500/30 rounded-2xl">
+          <p className="text-sm text-emerald-200/50 mb-4">Estimated production capacity and revenue from a dedicated fruiting chamber + outdoor log operation:</p>
+          <div className="space-y-2 mb-4">
+            {[
+              { item: 'Indoor fruiting (20 bags/cycle, 4 cycles/month)', yield: '80–160 lbs/month fresh', revenue: '$800–$2,400/month' },
+              { item: 'Outdoor logs (50 inoculated logs, seasonal)', yield: '50–150 lbs/season', revenue: '$500–$2,250/season' },
+              { item: 'Dried mushrooms (10:1 ratio)', yield: '8–16 lbs/month', revenue: '$1,200–$5,000/month' },
+              { item: 'Tinctures/Elixirs (from dried stock)', yield: '50–100 bottles/month', revenue: '$1,500–$5,000/month' },
+              { item: 'Grow kits (pre-colonized blocks)', yield: '20–40 kits/month', revenue: '$500–$1,400/month' },
+            ].map((row, i) => (
+              <div key={i} className="flex items-center justify-between py-2 border-b border-emerald-800/15 last:border-0 text-sm">
+                <div className="flex-1"><span className="text-emerald-200/60">{row.item}</span></div>
+                <div className="text-right shrink-0 ml-4">
+                  <div className="text-xs text-white/50">{row.yield}</div>
+                  <div className="font-bold text-emerald-300">{row.revenue}</div>
+                </div>
+              </div>
+            ))}
+            <div className="flex items-center justify-between pt-3 border-t-2 border-emerald-500/20">
+              <span className="font-bold text-emerald-300">Total Potential (at scale)</span>
+              <span className="text-xl font-black text-emerald-300">$10K–$40K/year</span>
+            </div>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-3">
+            <div className="p-3 bg-black/15 rounded-xl">
+              <div className="text-xs text-emerald-400/50 mb-1">Startup Cost</div>
+              <div className="text-lg font-bold text-white">$500–$1,500</div>
+              <div className="text-xs text-emerald-400/40">Flow hood (owned) + cooker + bags + spawn</div>
+            </div>
+            <div className="p-3 bg-black/15 rounded-xl">
+              <div className="text-xs text-emerald-400/50 mb-1">Per-Bag Cost</div>
+              <div className="text-lg font-bold text-white">$2–$4/bag</div>
+              <div className="text-xs text-emerald-400/40">Substrate + bag + spawn + energy</div>
+            </div>
+          </div>
+          <p className="mt-4 text-xs text-emerald-400/40">Economics improve dramatically at scale. 20 bags/cycle is conservative — a dedicated 10×10 ft fruiting room can hold 50–100 bags. Key constraint is fresh air exchange and humidity control capacity.</p>
+        </div>
+      </motion.div>
     </div>
   )
 }

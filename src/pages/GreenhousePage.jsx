@@ -109,9 +109,85 @@ export default function GreenhousePage() {
         </motion.div>
       ))}
 
+      {/* Build Options */}
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+        <h2 className="text-2xl font-black mb-6 flex items-center gap-3">
+          <Sun className="w-7 h-7 text-orange-400" />
+          <span className="bg-gradient-to-r from-orange-300 to-yellow-400 bg-clip-text text-transparent">Greenhouse Build Options</span>
+        </h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          {[
+            { type: 'Gothic Arch Hoop House (14×24 ft)', cost: '$800–$2,000 DIY / $2,000–$5,000 kit', pros: 'Excellent snow shedding (critical for Utah), good headroom, easy to build from EMT conduit + greenhouse poly. 336 sq ft of growing space.', cons: 'Poly covering lasts 4–6 years before replacement (~$100–$200). Not as insulated as rigid panels.' },
+            { type: 'Polycarbonate Panel Greenhouse (10×20 ft)', cost: '$1,500–$4,000 kit', pros: 'Twin-wall polycarbonate insulates far better than poly film. 10+ year lifespan. Better winter heat retention. Looks professional.', cons: 'Higher upfront cost. Heavier framework needed. Can overheat in summer without good ventilation.' },
+            { type: 'Lean-To / Attached Greenhouse', cost: '$500–$2,000 DIY', pros: 'Shares wall with house/garage — captures radiant heat. Shortest plumbing run to RO water. Easy to access in winter.', cons: 'Limited size. South-facing wall required. May need permits if attached to structure.' },
+            { type: 'Walipini / Underground Greenhouse', cost: '$500–$1,500 DIY', pros: 'Earth-sheltered — uses ground temperature (55°F year-round in Utah) as natural insulation. Incredibly efficient heating. Can grow tropicals in winter with minimal energy.', cons: 'Excavation required (check water table). Drainage critical. Permitting may vary. More complex build.' },
+          ].map((opt, i) => (
+            <div key={i} className="p-5 bg-orange-900/10 border border-orange-700/12 rounded-xl">
+              <h4 className="font-bold text-white text-sm mb-1">{opt.type}</h4>
+              <span className="text-xs px-2 py-0.5 bg-amber-800/30 rounded-full text-amber-300 inline-block mb-3">{opt.cost}</span>
+              <p className="text-sm text-emerald-200/50 mb-2"><strong className="text-emerald-300/70">Pros:</strong> {opt.pros}</p>
+              <p className="text-sm text-red-200/40"><strong className="text-red-300/70">Cons:</strong> {opt.cons}</p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Seasonal Schedule */}
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+        <h2 className="text-2xl font-black mb-6 text-white">Greenhouse Seasonal Schedule</h2>
+        <div className="space-y-3">
+          {[
+            { season: 'Winter (Nov–Feb)', activity: 'Overwinter figs, citrus, tender herbs. Start earliest seeds (onions, leeks) under lights. Maintain cacti collection (minimal water). Propagation station for fruit tree cuttings. Heat to 40–50°F minimum with thermostat-controlled heater.' },
+            { season: 'Early Spring (Mar–Apr)', activity: 'Peak seed-starting season. All tomato, pepper, basil, hemp, melon, squash starts under grow lights. Harden off seedlings by opening vents/doors during warm days. Begin moving overwintered plants outdoors on warm days.' },
+            { season: 'Late Spring (May)', activity: 'Transplant starts to outdoor beds after last frost. Move citrus/figs outdoors. Greenhouse transitions to heat-loving crops that benefit from extra warmth (peppers, eggplant, basil succession starts).' },
+            { season: 'Summer (Jun–Aug)', activity: 'Shade cloth (50–60%) to prevent overheating. Ventilation fans running. Grow heat-lovers (peppers, basil). Propagate fruit tree softwood cuttings in humidity dome. Start fall/winter crop seeds in late August.' },
+            { season: 'Fall (Sep–Oct)', activity: 'Remove shade cloth. Move frost-sensitive plants back inside before first freeze. Start cool-season crops inside (lettuce, spinach, kale for winter harvest). Clean and organize for winter.' },
+          ].map((item, i) => (
+            <div key={i} className="p-4 bg-orange-900/10 border border-orange-700/12 rounded-xl">
+              <h4 className="font-bold text-orange-300 text-sm mb-1">{item.season}</h4>
+              <p className="text-sm text-orange-200/50">{item.activity}</p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Heating/Cooling Calculations */}
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+        <h2 className="text-2xl font-black mb-6 text-white">Climate Control Essentials</h2>
+        <div className="p-6 bg-orange-900/15 border border-orange-700/20 rounded-2xl">
+          <div className="space-y-4">
+            {[
+              { system: 'Winter Heating', detail: 'Small electric space heater (1,500W) with thermostat set to 40°F minimum. For a 10×20 ft greenhouse with twin-wall poly, heating cost ~$30–$60/month in Utah winter. Add thermal mass (black water barrels) to absorb solar heat during day and release at night — dramatically reduces heating needs.' },
+              { system: 'Summer Cooling', detail: 'Shade cloth (50–60% shade rating) + exhaust fan + intake louver. Automated vent openers ($20–$40 each, wax cylinder, no electricity) on roof vents. Target: keep below 90°F. Utah summer sun can push unshaded greenhouse to 120°F+.' },
+              { system: 'Humidity Control', detail: 'Misting system with RO water for tropical plants and propagation. In winter, greenhouse naturally stays humid from plant transpiration. In summer, good ventilation prevents excess humidity and fungal issues.' },
+              { system: 'Lighting', detail: 'Supplemental LED grow lights for seed starting and overwintering (Dec–Feb when days are short). Full-spectrum bar lights or quantum board LEDs, 14–16 hrs/day on timer. ~$50–$150 for adequate coverage.' },
+            ].map((item, i) => (
+              <div key={i} className="p-4 bg-black/15 rounded-xl">
+                <h4 className="font-bold text-white text-sm mb-1">{item.system}</h4>
+                <p className="text-sm text-orange-200/50">{item.detail}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-4 grid sm:grid-cols-3 gap-3 text-center">
+            <div className="p-3 bg-black/20 rounded-lg">
+              <div className="text-xs text-orange-400/50">Build Cost</div>
+              <div className="text-lg font-bold text-white">$1,500–$4,000</div>
+            </div>
+            <div className="p-3 bg-black/20 rounded-lg">
+              <div className="text-xs text-orange-400/50">Annual Operating</div>
+              <div className="text-lg font-bold text-white">$200–$500</div>
+            </div>
+            <div className="p-3 bg-black/20 rounded-lg">
+              <div className="text-xs text-orange-400/50">Extends Season By</div>
+              <div className="text-lg font-bold text-emerald-300">4–8 weeks</div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
       <div className="p-5 bg-orange-900/15 border border-orange-700/20 rounded-xl">
         <p className="text-sm text-orange-300/80">
-          <strong>Integration:</strong> The greenhouse connects to the main water system (<a href="/water" className="text-orange-400 hover:text-orange-300 underline">Water Plan</a> RO tank). It also serves as the propagation nursery for the <a href="/fruit-trees" className="text-orange-400 hover:text-orange-300 underline">Fruit Tree Nursery</a> — rooting cuttings and grafts need the controlled warmth and humidity a greenhouse provides.
+          <strong>Integration:</strong> The greenhouse connects to the main water system (<a href="/water" className="text-orange-400 hover:text-orange-300 underline">Water Plan</a> RO tank). It also serves as the propagation nursery for the <a href="/fruit-trees" className="text-orange-400 hover:text-orange-300 underline">Fruit Tree Nursery</a> — rooting cuttings and grafts need the controlled warmth and humidity a greenhouse provides. Spent mushroom substrate from the <a href="/mushrooms" className="text-orange-400 hover:text-orange-300 underline">Mycology Lab</a> makes excellent potting mix amendment.
         </p>
       </div>
     </div>
