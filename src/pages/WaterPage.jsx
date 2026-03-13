@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   Droplets, AlertTriangle, CheckCircle2, ExternalLink, Beaker, ThermometerSun,
-  Filter, Waves, FlaskConical, Leaf, Sprout, Mushroom, TreePine, ArrowRight,
+  Filter, Waves, FlaskConical, Leaf, Sprout, TreePine, ArrowRight,
   ShieldAlert, ShieldCheck, Info, Gauge, Sun, Snowflake, Target
 } from 'lucide-react'
 
@@ -575,7 +575,7 @@ export default function WaterPage() {
                 ],
               },
               {
-                icon: Mushroom,
+                icon: Sprout,
                 crop: 'Mushroom Substrates & Misting',
                 stages: [
                   { stage: 'Substrate Prep', ph: '5.5–6.5', tds: '<50 ppm', notes: 'Near-pure RO or distilled. No chlorine. Substrate naturally buffers pH.' },

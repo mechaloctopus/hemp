@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {
-  Store, ShoppingCart, Droplets, Leaf, Mushroom, FlaskConical, Heart,
+  Store, ShoppingCart, Droplets, Leaf, FlaskConical, Heart,
   BookOpen, Shirt, UtensilsCrossed, Star, ExternalLink, Calendar,
   Users, ChefHat, GraduationCap, Sparkles, ArrowRight, CheckCircle2,
   Package, Award, Beaker, MessageCircle

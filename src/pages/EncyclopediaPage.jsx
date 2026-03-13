@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {
-  BookOpen, Search, Leaf, Sprout, Mushroom, TreePine, Flower2, Sun,
+  BookOpen, Search, Leaf, Sprout, TreePine, Flower2, Sun,
   Droplets, ThermometerSun, Ruler, ArrowRight, Filter, Clock, Snowflake, Layers
 } from 'lucide-react'
 import { allSpecies, categories } from '../data/species'

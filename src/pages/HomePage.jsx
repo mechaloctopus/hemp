@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
   Leaf, Droplets, Sprout, TreePine, FlaskConical, Warehouse, Heart, BookOpen,
-  ScanLine, ShoppingBag, Layers, Mushroom, Sun, ArrowRight, MapPin, LayoutGrid,
+  ScanLine, ShoppingBag, Layers, Sun, ArrowRight, MapPin, LayoutGrid,
   UtensilsCrossed, ShieldCheck, Sparkles, Store
 } from 'lucide-react'
 
@@ -73,7 +73,7 @@ const sections = [
   },
   {
     path: '/mushrooms',
-    icon: Mushroom,
+    icon: Sprout,
     title: 'Mycology Lab',
     description: 'Shiitake, maitake, lion\'s mane, pioppino, chestnut, oysters — fruiting chamber protocols, masters mix, log inoculation, and elixir production.',
     color: 'from-violet-500 to-violet-600',
@@ -130,6 +130,8 @@ const sections = [
 ]
 
 export default function HomePage() {
+  const logoSrc = `${import.meta.env.BASE_URL}lazyklogo_transparant_background.png`
+
   return (
     <div className="min-h-screen">
       {/* Hero */}
@@ -155,9 +157,17 @@ export default function HomePage() {
             </div>
 
             <div className="mb-6">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-400 to-amber-500 text-4xl font-black text-white italic mb-4 shadow-lg shadow-emerald-500/20">
-                K
-              </div>
+              <motion.div
+                className="inline-flex items-center justify-center w-28 h-28 rounded-full bg-white/10 border border-emerald-500/20 mb-4 shadow-2xl shadow-emerald-950/40 backdrop-blur-sm"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
+              >
+                <img
+                  src={logoSrc}
+                  alt="Lazy K Farms logo"
+                  className="w-24 h-24 object-contain drop-shadow-[0_0_25px_rgba(16,185,129,0.2)]"
+                />
+              </motion.div>
             </div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-none mb-4">

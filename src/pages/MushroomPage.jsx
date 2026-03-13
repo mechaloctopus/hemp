@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import {
-  Mushroom, FlaskConical, Thermometer, Droplets, Wind, CheckCircle2,
+  Sprout, FlaskConical, Thermometer, Droplets, Wind, CheckCircle2,
   ExternalLink, AlertTriangle, TreePine, Beaker, ShoppingBag, Package
 } from 'lucide-react'
 
@@ -106,7 +106,7 @@ export default function MushroomPage() {
     <div className="max-w-5xl mx-auto px-6 lg:px-8 py-12">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-violet-800/30 border border-violet-600/30 rounded-full text-sm text-violet-300 mb-6">
-          <Mushroom className="w-4 h-4" />
+          <Sprout className="w-4 h-4" />
           Mycology Lab & Fruiting Operations
         </div>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none mb-4">
@@ -122,7 +122,7 @@ export default function MushroomPage() {
       {/* Species Guide */}
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
         <h2 className="text-2xl font-black mb-6 flex items-center gap-3">
-          <Mushroom className="w-7 h-7 text-violet-400" />
+          <Sprout className="w-7 h-7 text-violet-400" />
           <span className="bg-gradient-to-r from-violet-300 to-violet-500 bg-clip-text text-transparent">Species Portfolio</span>
         </h2>
         <div className="space-y-3">

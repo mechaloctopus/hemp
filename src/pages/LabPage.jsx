@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import {
   FlaskConical, ShieldCheck, AlertTriangle,
-  Leaf, Mushroom, Box, Sparkles,
+  Leaf, Box, Sparkles,
   AirVent, Star, DollarSign, Ruler, Warehouse
 } from 'lucide-react'
 
@@ -129,9 +129,9 @@ export default function LabPage() {
 
         {/* Proximity to Fruiting Chamber */}
         <div className="p-5 bg-violet-900/10 border border-violet-700/15 rounded-xl mb-8">
-          <h4 className="font-bold text-violet-300 text-sm mb-2 flex items-center gap-2"><Mushroom className="w-4 h-4" /> Connection to Fruiting Chamber</h4>
+          <h4 className="font-bold text-violet-300 text-sm mb-2 flex items-center gap-2"><Leaf className="w-4 h-4" /> Connection to Fruiting Chamber</h4>
           <p className="text-sm text-violet-200/50">
-            The clean room should be <strong className="text-white">directly adjacent to the fruiting chamber</strong> — ideally with a connecting door or short covered walkway. This minimizes the distance colonized bags travel from sterile lab to fruiting environment, reducing contamination exposure. The workflow: inoculate in clean room → colonize in clean room (shelving) → transfer through door to fruiting chamber when fully colonized. The fruiting chamber operates at higher humidity and different air exchange than the lab — they should be separate rooms but physically connected.
+            The clean room should sit immediately adjacent to the fruiting chamber. That means colonized bags, agar cultures, and liquid cultures move only a few steps between sterile prep and fruiting. Less walking, less handling, lower contamination risk.
           </p>
         </div>
       </motion.div>
@@ -283,7 +283,7 @@ export default function LabPage() {
           <div className="p-6 bg-gradient-to-br from-violet-900/20 to-violet-800/10 border border-violet-600/20 rounded-2xl">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center">
-                <Mushroom className="w-5 h-5 text-white" />
+                <Sparkles className="w-5 h-5 text-white" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-white">Mycology Lab</h3>

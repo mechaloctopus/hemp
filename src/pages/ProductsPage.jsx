@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import {
-  ShoppingBag, DollarSign, Leaf, Mushroom, Sprout, FlaskConical,
+  ShoppingBag, DollarSign, Leaf, FlaskConical,
   Droplets, Apple, Package, TrendingUp, ExternalLink
 } from 'lucide-react'
 
@@ -18,7 +18,7 @@ const productLines = [
   },
   {
     category: 'Mushroom Products',
-    icon: Mushroom,
+    icon: Sprout,
     color: 'from-violet-500 to-violet-600',
     products: [
       { name: 'Lion\'s Mane Dual-Extract Tincture', price: '$30–$50/2oz', margin: 'Very High', desc: 'Hot water + alcohol dual extraction. Brain health, NGF support. Premium medicinal product.', license: 'Food Handler / Cottage Food' },

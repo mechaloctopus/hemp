@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Outlet, NavLink, useLocation } from 'react-router-dom'
 import {
   Leaf, Droplets, Sprout, TreePine, FlaskConical, Warehouse, Heart,
-  ScanLine, ShoppingBag, Layers, Menu, X, Home, Mushroom, Sun, LayoutGrid,
+  ScanLine, ShoppingBag, Layers, Menu, X, Home, Sun, LayoutGrid,
   BookOpen, UtensilsCrossed, Pill, Store
 } from 'lucide-react'
 
@@ -22,7 +22,7 @@ const navSections = [
       { path: '/hemp', label: 'Hemp', icon: Leaf, description: 'CBD & Fiber' },
       { path: '/garden', label: 'Garden', icon: Sprout, description: 'Herbs & Vegetables' },
       { path: '/raised-beds', label: 'Raised Beds', icon: LayoutGrid, description: 'Designs & Gallery' },
-      { path: '/mushrooms', label: 'Mycology', icon: Mushroom, description: 'Fruiting & Lab' },
+      { path: '/mushrooms', label: 'Mycology', icon: Sprout, description: 'Fruiting & Lab' },
       { path: '/fruit-trees', label: 'Fruit Trees', icon: TreePine, description: 'Nursery & Cloning' },
       { path: '/greenhouse', label: 'Greenhouse', icon: Sun, description: 'Cactus & Tropicals' },
     ],
@@ -48,6 +48,7 @@ const navSections = [
 export default function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const location = useLocation()
+  const logoSrc = `${import.meta.env.BASE_URL}lazyklogo_transparant_background.png`
 
   return (
     <div className="bg-emerald-950 text-white font-sans min-h-screen flex">
@@ -63,8 +64,12 @@ export default function Layout() {
       <aside className={`fixed top-0 left-0 h-full w-72 bg-emerald-950/98 backdrop-blur-xl border-r border-emerald-800/30 z-50 transform transition-transform duration-300 lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} overflow-y-auto`}>
         <div className="p-5 border-b border-emerald-800/30">
           <NavLink to="/" className="flex items-center gap-3 group" onClick={() => setSidebarOpen(false)}>
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-amber-500 flex items-center justify-center text-xl font-black text-white italic">
-              K
+            <div className="w-12 h-12 rounded-xl bg-white/10 border border-emerald-700/30 flex items-center justify-center overflow-hidden shadow-lg shadow-emerald-950/40">
+              <img
+                src={logoSrc}
+                alt="Lazy K Farms logo"
+                className="w-10 h-10 object-contain"
+              />
             </div>
             <div>
               <div className="font-bold text-lg leading-tight">
@@ -124,7 +129,11 @@ export default function Layout() {
             <Menu className="w-6 h-6" />
           </button>
           <div className="flex items-center gap-2">
-            <span className="text-lg font-black italic text-emerald-400">K</span>
+            <img
+              src={logoSrc}
+              alt="Lazy K Farms logo"
+              className="w-8 h-8 object-contain"
+            />
             <span className="font-bold text-sm">
               <span className="text-emerald-400">Lazy K</span> Farms
             </span>
