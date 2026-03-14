@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "node deploy.mjs && git add index.html assets/ lazyklogo_transparant_background.png vite.svg gardenbeds/ && git commit -m \"rebuild\" && git push origin main"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",

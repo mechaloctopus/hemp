@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import {
   ShoppingBag, DollarSign, Leaf, FlaskConical,
-  Droplets, Apple, Package, TrendingUp, ExternalLink
+  Droplets, Apple, Package, TrendingUp, ExternalLink, Sprout
 } from 'lucide-react'
 
 const productLines = [
